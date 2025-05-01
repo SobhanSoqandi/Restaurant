@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+    .text-sidebar {
+        color: #9a9aa9;
+    }
+
+}
+
+
+@layer components {
+
+    .btn {
+        @apply text-white bg-green-700 h-10 px-10 rounded-xl text-lg shadow-lg
+    }
+
+    .btn--add {
+        @apply text-gray-400 bg-white shadow-sm border w-8 h-8 rounded-full text-xl 
+    }
+    .btn--primary {
+        @apply text-white bg-[#605BFF] hover:bg-indigo-600 transition-all duration-300;
+    }
+}
