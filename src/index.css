@@ -18,9 +18,12 @@
     }
 
     .btn--add {
-        @apply text-gray-400 bg-white shadow-sm border w-8 h-8 rounded-full text-xl 
+        @apply items-center justify-center rounded-full bg-white shadow p-2 hover:shadow-xl border
     }
     .btn--primary {
         @apply text-white bg-[#605BFF] hover:bg-indigo-600 transition-all duration-300;
+    }
+    .object--style {
+        @apply bg-gray-100 p-2 text-center rounded-xl mx-2 
     }
 }
