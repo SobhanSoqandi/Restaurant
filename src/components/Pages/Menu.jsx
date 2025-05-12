@@ -4,27 +4,19 @@ import MenuList from '../featurs/Menu/MenuList';
 import Header from '../UI/Header';
 import http from '../services/httpservice';
 import { toast } from 'react-toastify';
+import useProductMenu from '../services/useProductMenu';
 
 
 function Menu() {
-  const [menuItems, setMenuItems] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
 
 
-  useEffect(() => {
-    const fetchMenu = async () => {
-      try {
-        const response = await http.get("/menu");
+  const {isLoading , menuItems , isError , error} = useProductMenu();
 
-        setMenuItems(response.data.data || []);
-      } catch (err) {
-        toast.error(err.message);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    fetchMenu();
-  }, []);
+
+  if(isError) {
+    return toast.error(error)
+  }
+
 
   if (isLoading) {
     return <p>Loading...</p>;

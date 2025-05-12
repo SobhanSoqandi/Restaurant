@@ -1,6 +1,8 @@
-import axios from "axios";
+import http from "./httpservice";
 
+const getProductMenuApi = async () => {
+  const response = await http.get("/menu");
+  return response.data.data || []; 
+};
 
- export const getProductMenu = async () => {
-    return await axios.get("https://react-fast-pizza-api.jonas.io/api/menu").then(({ data }) => data.data);
-  }
+export default getProductMenuApi;

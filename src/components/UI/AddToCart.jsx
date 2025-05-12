@@ -9,11 +9,11 @@ function AddToCart() {
 
     return (
         <div className="flex justify-between w-44" >
-            <div className="space-x-1 my-auto mt-6 text-xl" >
+            <div className="space-x-1 my-auto mt-6 text-md" >
                 {
                     OrderNumber > 0 ?
 
-                        <button className="btn--add text-white bg-red-500"
+                        <button className="btn--add text-white bg-rose-500"
                             onClick={() => setOrderNumber(0)}
                         >
                             <FaTrash />
