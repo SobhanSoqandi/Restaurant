@@ -56,7 +56,7 @@ function App() {
             <Route path="/layout" element={<Layout />}>
               <Route path="" element={<Index />} />
               <Route path="menu" element={<Menu />} />
-              <Route path='auth' element={<OrderInfo />} />
+              <Route path='order' element={<OrderInfo />} />
               <Route path='cart' element={<Cart />} />
               <Route path='singleorder' element={<SingleOrdedr />} />
             </Route>
