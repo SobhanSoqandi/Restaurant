@@ -5,7 +5,6 @@ import Header from '../../UI/Header'
 function OrderInfo() {
     return (
         <>
-            <Header />
             <div className="max-w-sm m-auto shadow-lg rounded-lg mt-20" >
                 <div className="p-5" >
                     <h1 className="font-bold text-xl md:text-3xl py-10" > Ready to order ? Lets go </h1>

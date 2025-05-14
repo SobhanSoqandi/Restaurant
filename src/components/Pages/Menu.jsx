@@ -5,27 +5,27 @@ import Header from '../UI/Header';
 import http from '../services/httpservice';
 import { toast } from 'react-toastify';
 import useProductMenu from '../services/useProductMenu';
+import Loading from '../UI/Loading';
 
 
 function Menu() {
 
 
-  const {isLoading , menuItems , isError , error} = useProductMenu();
+  const { isLoading, menuItems, isError, error } = useProductMenu();
 
 
-  if(isError) {
+  if (isError) {
     return toast.error(error)
   }
 
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <div className="mt-56" ><Loading /></div>;
   }
 
   return (
     <div >
-      <Header />
-
+     
       <div className="container mx-auto" >
 
         <MenuList

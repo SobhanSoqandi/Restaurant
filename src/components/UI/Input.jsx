@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Input({label , type , name}) {
+function Input({ label, type, placeholder }) {
     return (
         <div class="md:flex md:items-center mb-6">
             <div class="md:w-4/12">
@@ -9,7 +9,10 @@ function Input({label , type , name}) {
                 </label>
             </div>
             <div class="md:w-8/12 ">
-                <input class="shadow-md w-full border-2 border-gray-200 rounded-xl py-2 px-4 focus:outline-none focus:bg-white focus:border-green-600" type={type} />
+                <input
+                    placeholder={placeholder}
+                    type={type}
+                    class="shadow-md w-full border-2 border-gray-200 rounded-xl py-2 px-4 focus:outline-none focus:bg-white focus:border-green-600" />
             </div>
         </div>
     )

@@ -3,8 +3,6 @@ import Header from '../UI/Header'
 
 function SingleOrdedr() {
     return (
-        <div >
-            <Header />
             <div className="container mx-auto p-5 py-20" >
                 <div className="flex justify-between" >
                     <h1 className="py-4 font-bold text-2xl" > Order Single Delivered </h1>
@@ -55,7 +53,6 @@ function SingleOrdedr() {
                     <span> Total Price : 65$ </span>
                 </div>
             </div>
-        </div>
     )
 }
 

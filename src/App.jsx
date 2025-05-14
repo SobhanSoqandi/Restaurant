@@ -10,6 +10,7 @@ import Cart from './components/Pages/Cart';
 import SingleOrdedr from './components/Pages/SingleOrdedr';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ToastContainer } from 'react-toastify';
+import Layout from './components/UI/Layout';
 
 function App() {
 
@@ -41,13 +42,27 @@ function App() {
       <QueryClientProvider client={queryClient} >
         <ToastContainer />
         <BrowserRouter>
-          <Routes>
+          {/* <Routes>
             <Route path='/' element={<Index />} />
             <Route path='/menu' element={<Menu />} />
             <Route path='/auth' element={<OrderInfo />} />
             <Route path='/cart' element={<Cart />} />
             <Route path='/singleorder' element={<SingleOrdedr />} />
+            <Route path='/layout' element={<Layout />} />
+          </Routes> */}
+
+
+          <Routes>
+            <Route path="/layout" element={<Layout />}>
+              <Route path="" element={<Index />} />
+              <Route path="menu" element={<Menu />} />
+              <Route path='auth' element={<OrderInfo />} />
+              <Route path='cart' element={<Cart />} />
+              <Route path='singleorder' element={<SingleOrdedr />} />
+            </Route>
           </Routes>
+
+
         </BrowserRouter>
       </QueryClientProvider>
 

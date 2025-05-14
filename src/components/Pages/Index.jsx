@@ -5,7 +5,6 @@ import Register from '../featurs/Auth/Register'
 function Index() {
   return (
     <div>
-        <Header />
         <Register />
     </div>
   )
