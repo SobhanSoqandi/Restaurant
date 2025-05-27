@@ -2,7 +2,6 @@
 import { BrowserRouter, createBrowserRouter, Route, RouterProvider, Routes } from 'react-router-dom';
 import './App.css';
 import Index from './components/Pages/Index';
-
 import "./index.css";
 import Menu from './components/Pages/Menu';
 import OrderInfo from './components/featurs/Order/OrderInfo';
@@ -11,47 +10,18 @@ import SingleOrdedr from './components/Pages/SingleOrdedr';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ToastContainer } from 'react-toastify';
 import Layout from './components/UI/Layout';
+import { Provider } from 'react-redux';
+import store from './Store';
 
 function App() {
-
-  // const BrowserRouter = createBrowserRouter([
-  //   {
-
-  //     children: [
-  //       {
-  //         path: "/menu",
-  //         element: <Menu />
-  //       } ,
-  //       {
-  //         path: "/",
-  //         element: <Index />
-  //       } ,
-  //       {
-  //         path: "/menu",
-  //         element: <Menu />
-  //       }
-  //     ]
-  //   }
-  // ])
 
   const queryClient = new QueryClient();
 
   return (
-    <>
-
+    <Provider store={store}>
       <QueryClientProvider client={queryClient} >
         <ToastContainer />
         <BrowserRouter>
-          {/* <Routes>
-            <Route path='/' element={<Index />} />
-            <Route path='/menu' element={<Menu />} />
-            <Route path='/auth' element={<OrderInfo />} />
-            <Route path='/cart' element={<Cart />} />
-            <Route path='/singleorder' element={<SingleOrdedr />} />
-            <Route path='/layout' element={<Layout />} />
-          </Routes> */}
-
-
           <Routes>
             <Route path="/layout" element={<Layout />}>
               <Route path="" element={<Index />} />
@@ -61,17 +31,10 @@ function App() {
               <Route path='singleorder' element={<SingleOrdedr />} />
             </Route>
           </Routes>
-
-
         </BrowserRouter>
       </QueryClientProvider>
-
-
-
-      {/* <RouterProvider router={BrowserRouter} /> */}
-
-    </>
-  )
+    </Provider>
+  );
 }
 
 export default App

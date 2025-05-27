@@ -10,9 +10,7 @@ import Loading from '../UI/Loading';
 
 function Menu() {
 
-
   const { isLoading, menuItems, isError, error } = useProductMenu();
-
 
   if (isError) {
     return toast.error(error)

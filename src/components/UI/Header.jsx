@@ -2,12 +2,18 @@
 import { BiSearch } from 'react-icons/bi'
 import { GiFullPizza } from 'react-icons/gi'
 import Input from './Input'
+import { useSelector } from 'react-redux';
 
 function Header() {
+
+
+    const name = useSelector((state) => state.AuthSlice.name);
+
+
     return (
         <header className="bg-red-500 container mx-auto " >
             <div className="container mx-auto flex p-2" >
-               
+
                 <GiFullPizza className="w-16 h-16 mx-2 text-white " />
                 <h1 className="text-white text-xl my-auto" > fast React Pizza </h1>
                 <form class="max-w-sm ml-auto mr-5">
@@ -23,8 +29,9 @@ function Header() {
                         type="search"
                         placeholder="Search Your food"
                         /> */}
-                    </div>
+                    </div>                    
                 </form>
+                    <div className="mt-4" >  {name}  </div>
             </div>
         </header>
     )

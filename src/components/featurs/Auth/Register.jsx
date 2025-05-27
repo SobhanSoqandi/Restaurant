@@ -1,15 +1,16 @@
 import React, { useState } from 'react'
-import Input from '../../UI/Input';
+
+import { useDispatch } from "react-redux";
+import { newName } from './AuthSlice';
+import { useNavigate } from 'react-router-dom';
 
 function Register() {
 
+    const navigate = useNavigate();
+
+    const dispatch = useDispatch();
+
     const [name, setName] = useState("");
-
-    const HandleRegister = () => {
-        console.log(name);
-        
-    }
-
 
     return (
         <div className="container mt-10 mx-auto" >
@@ -26,9 +27,12 @@ function Register() {
 
             </div>
             <button
-                onClick={() => HandleRegister()}
+                onClick={() => {
+                    dispatch(newName(name));
+                    navigate("menu");
+                }}
                 className="btn" >
-                Start Ordering
+                {name}
             </button>
         </div>
     )
