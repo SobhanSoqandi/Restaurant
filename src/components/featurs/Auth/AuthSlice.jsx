@@ -11,9 +11,8 @@ const AuthSlice = createSlice({
   reducers: {
     newName: (state, { type, payload }) => {
 
-        state.name = payload;
-        console.log(state.name);
-    
+      state.name = payload;
+      console.log(state.name);
 
     },
   },
@@ -21,3 +20,6 @@ const AuthSlice = createSlice({
 export default AuthSlice;
 export const { newName } = AuthSlice.actions;
 export const reducer = AuthSlice.reducer;
+
+
+

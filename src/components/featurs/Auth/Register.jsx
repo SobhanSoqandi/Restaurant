@@ -26,14 +26,20 @@ function Register() {
                 />
 
             </div>
-            <button
-                onClick={() => {
-                    dispatch(newName(name));
-                    navigate("menu");
-                }}
-                className="btn" >
-                {name}
-            </button>
+            {
+            name.length > 0 ?
+                <button
+                    onClick={() => {
+                        dispatch(newName(name));
+                        navigate("menu");
+                    }}
+                    className="btn" >
+                    Start Ordering
+                </button>
+                :
+                ""
+            }
+        
         </div>
     )
 }

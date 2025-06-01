@@ -5,6 +5,7 @@ import ShoppCart from '../featurs/cart/ShoppCart';
 function Cart() {
   return (
     <div>
+      longtude in the basage
         <ShoppCart />
     </div>
   )

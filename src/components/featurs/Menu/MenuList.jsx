@@ -4,7 +4,6 @@ import Footer from '../../UI/Footer'
 
 function MenuList({ Products }) {
     return (
-
         <>
             <div >
                 {
@@ -13,7 +12,10 @@ function MenuList({ Products }) {
 
                             <div className="p-4" >
                                 <img className="w-44 h-40 rounded-xl" src={item.imageUrl} alt={item.name} />
-                                <AddToCart Length={item.ingredients.length} />
+                                <AddToCart
+                                item={item}
+                                id={item.id}
+                                Length={item.ingredients.length} />
                             </div>
 
                             <div className="flex-1 space-y-10 font-bold p-5" >
@@ -29,10 +31,6 @@ function MenuList({ Products }) {
                         </div>
                     ))
                 }
-
-
-
-
 
             </div>
             <Footer />

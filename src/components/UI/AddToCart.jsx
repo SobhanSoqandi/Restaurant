@@ -2,10 +2,40 @@
 import { useState } from 'react'
 import { FaCartPlus, FaTrash } from 'react-icons/fa6'
 import { FiMinus, FiPlus } from 'react-icons/fi'
-function AddToCart() {
+import { AddItem } from '../featurs/cart/CartSlice';
+import { useDispatch } from 'react-redux';
+function AddToCart({ item, id }) {
+
+    const dispatch = useDispatch();
+
 
     const [OrderNumber, setOrderNumber] = useState(0);
 
+
+    const Item = {
+        pizzaId: 0,
+        name: "",
+        quantity: 0,
+        unitPrice: 0,
+        totalPrice: 0,
+        ingredients: [],
+    };
+
+
+    const AddToCart = () => {
+        const data = {
+            ...Item,
+            pizzaId: item.id,
+            unitPrice: item.unitPrice,
+            name: item.name,
+            totalPrice: item.unitPrice,
+            quantity: 1,
+            ingredients: item.ingredients,
+        };
+        dispatch(AddItem(data));
+        console.log(data);
+        
+    };
 
     return (
         <div className="flex justify-between w-44" >
@@ -20,37 +50,34 @@ function AddToCart() {
                         </button>
                         :
                         <button
-                            onClick={() => setOrderNumber(1)}
+                            // onClick={() => setOrderNumber(1)}
+                            onClick={AddToCart}
                             className="btn--add text-white bg-emerald-600 " >
                             <FaCartPlus />
                         </button>
-
                 }
-
-
-
                 {
                     OrderNumber > 0 ?
-                    <>
-                        <button
-                            onClick={() => setOrderNumber(OrderNumber + 1)}
-                            className="btn--add">
-                            <FiPlus />
-                        </button>
-                          <span > {OrderNumber} </span>
+                        <>
+                            <button
+                                onClick={() => setOrderNumber(OrderNumber + 1)}
+                                className="btn--add">
+                                <FiPlus />
+                            </button>
+                            <span > {OrderNumber} </span>
 
-                          <button
-                              onClick={() => {
-                                  if (OrderNumber > 0) {
-                                      setOrderNumber(OrderNumber - 1);
-                                  }
-                              }}
-          
-                              className="btn--add">
-                              <FiMinus />
-          
-                          </button>
-                          </>
+                            <button
+                                onClick={() => {
+                                    if (OrderNumber > 0) {
+                                        setOrderNumber(OrderNumber - 1);
+                                    }
+                                }}
+
+                                className="btn--add">
+                                <FiMinus />
+
+                            </button>
+                        </>
                         :
                         ""
                 }

@@ -15,32 +15,32 @@ function SingleOrdedr() {
                     <h2 > Order Shoude have arrived </h2>
                     <span> 2025-04-29 17:11:09 </span>
                 </div>
-                <table class="w-full text-sm text-left text-gray-700 my-5 ">
-                    <thead class="text-sm ">
+                <table className="w-full text-sm text-left text-gray-700 my-5 ">
+                    <thead className="text-sm ">
                         <tr className="">
-                            <th scope="col" class="px-6 py-3">
+                            <th scope="col" className="px-6 py-3">
                                 Product name
                             </th>
 
-                            <th scope="col" class="px-6 py-3">
+                            <th scope="col" className="px-6 py-3">
                                 number
                             </th>
-                            <th scope="col" class="px-6 py-3">
+                            <th scope="col" className="px-6 py-3">
                                 Price
                             </th>
 
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="bg-white border-b border-gray-200 text-gray-700">
-                            <th scope="row" class="px-6 py-4">
+                        <tr className="bg-white border-b border-gray-200 text-gray-700">
+                            <th scope="row" className="px-6 py-4">
                                 Apple MacBook Pro 17"
                             </th>
 
-                            <td class="px-6 py-4">
+                            <td className="px-6 py-4">
                                 X 4
                             </td>
-                            <td class="px-6 py-4">
+                            <td className="px-6 py-4">
                                 $299
                             </td>
 
