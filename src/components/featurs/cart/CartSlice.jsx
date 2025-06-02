@@ -15,9 +15,20 @@ const CartSlice = createSlice({
     name: "CartSlice",
     initialState,
     reducers: {
-        AddItem: (state, action) => {
-            return [...state, action.payload];
-            alert(action.payload);
+        AddItem: (state, {type , payload}) => {
+            // return [...state, payload];
+
+            const item = payload;
+            const ExistItem = state.find(i => i.pizzaId === item.pizzaId);
+
+            if(ExistItem){
+              ExistItem.quantity += item.quantity;
+              ExistItem.totalPrice += item.totalPrice;
+            }
+            else {
+              state.push(item);
+            }
+            
         },
     },
 });

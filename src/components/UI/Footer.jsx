@@ -6,11 +6,11 @@ import { useNavigate } from 'react-router-dom';
 
 function Footer() {
 
-         const pizzaNumber = useSelector(getNumber);
+    const pizzaNumber = useSelector(getNumber);
 
-         const Price = useSelector(getPrice);
+    const Price = useSelector(getPrice);
 
-         const navigate = useNavigate();
+    const navigate = useNavigate();
 
 
     return (
@@ -20,7 +20,7 @@ function Footer() {
                 <span> {Price} $</span>
             </div>
             <div
-              onClick={() => navigate('/layout/cart')}
+                onClick={() => navigate('/layout/cart')}
                 className="font-bold flex items-center hover:cursor-pointer group">
                 <h2> Open Caart </h2>
                 <GoChevronRight className="fill-white text-[20px] " />
