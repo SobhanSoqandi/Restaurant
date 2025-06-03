@@ -2,9 +2,9 @@
 import { useState } from 'react'
 import { FaCartPlus, FaTrash } from 'react-icons/fa6'
 import { FiMinus, FiPlus } from 'react-icons/fi'
-import { AddItem } from '../featurs/cart/CartSlice';
+import { AddItem , decerment, deleted, Incrase } from '../featurs/cart/CartSlice';
 import { useDispatch } from 'react-redux';
-function AddToCart({ item, id }) {
+function AddToCart({ item, id, length }) {
 
     const dispatch = useDispatch();
 
@@ -33,9 +33,25 @@ function AddToCart({ item, id }) {
             ingredients: item.ingredients,
         };
         dispatch(AddItem(data));
-        console.log(data);
-        
+        setOrderNumber(OrderNumber + 1);
+        console.log(item);
+
     };
+
+    const incrase = () => {
+        dispatch(Incrase(item.id));
+        setOrderNumber(OrderNumber + 1)
+    }
+
+    const Decerment = () => {
+        dispatch(decerment(item.id));
+        setOrderNumber(OrderNumber - 1)
+    }
+
+    const Delete = () => {
+        dispatch(deleted(item.id));
+        setOrderNumber(0)
+    }
 
     return (
         <div className="flex justify-between w-44" >
@@ -44,13 +60,12 @@ function AddToCart({ item, id }) {
                     OrderNumber > 0 ?
 
                         <button className="btn--add text-white bg-rose-500"
-                            onClick={() => setOrderNumber(0)}
+                            onClick={Delete}
                         >
                             <FaTrash />
                         </button>
                         :
                         <button
-                            // onClick={() => setOrderNumber(1)}
                             onClick={AddToCart}
                             className="btn--add text-white bg-emerald-600 " >
                             <FaCartPlus />
@@ -60,18 +75,14 @@ function AddToCart({ item, id }) {
                     OrderNumber > 0 ?
                         <>
                             <button
-                                onClick={() => setOrderNumber(OrderNumber + 1)}
+                                onClick={incrase}
                                 className="btn--add">
                                 <FiPlus />
                             </button>
                             <span > {OrderNumber} </span>
 
                             <button
-                                onClick={() => {
-                                    if (OrderNumber > 0) {
-                                        setOrderNumber(OrderNumber - 1);
-                                    }
-                                }}
+                                onClick={Decerment}
 
                                 className="btn--add">
                                 <FiMinus />

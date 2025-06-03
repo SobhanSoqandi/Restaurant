@@ -2,37 +2,59 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 const initialState = [
-    {
-        pizzaId: 0,
-        name: "",
-        quantity: 0,
-        unitPrice: 0,
-        totalPrice: 0,
-    },
+  {
+    pizzaId: 0,
+    name: "",
+    quantity: 0,
+    unitPrice: 0,
+    totalPrice: 0,
+  },
 ];
 
 const CartSlice = createSlice({
-    name: "CartSlice",
-    initialState,
-    reducers: {
-        AddItem: (state, {type , payload}) => {
-            // return [...state, payload];
+  name: "CartSlice",
+  initialState,
+  reducers: {
+    AddItem: (state, { type, payload }) => {
+      return [...state, payload];
 
-            const item = payload;
-            const ExistItem = state.find(i => i.pizzaId === item.pizzaId);
-
-            if(ExistItem){
-              ExistItem.quantity += item.quantity;
-              ExistItem.totalPrice += item.totalPrice;
-            }
-            else {
-              state.push(item);
-            }
-            
-        },
     },
+
+    Incrase: (state, { type, payload }) => {
+      const item = state.find((i) => i.pizzaId === payload);
+      if (item) {
+        item.quantity++;
+        item.totalPrice = item.quantity * item.unitPrice;
+      }
+    },
+
+    decerment: (state, { type, payload }) => {
+      const item = state.find((i) => i.pizzaId === payload);
+      if (item) {
+        item.quantity--;
+        item.totalPrice = item.quantity * item.unitPrice;
+      }
+    },
+
+      deleted : (state, { type, payload }) => {
+      const item = state.find((i) => i.pizzaId === payload);
+      if (item) {
+        item.quantity = 0;
+        item.totalPrice = item.quantity * item.unitPrice;
+      }
+    },
+
+  },
+
+
+
+
+
+
 });
-export const { AddItem } = CartSlice.actions;
+
+export const { AddItem, deleted ,decerment, Incrase  } = CartSlice.actions;
+
 
 export const reducer = CartSlice.reducer;
 
